@@ -1,3 +1,4 @@
+kind: Deployment
 containers:
-- name: img1
-  image: hemosoft.azurecr.io/img1:v1
+- name: sample
+  image: hemosoft.azurecr.io/img1:latest 
