@@ -1,0 +1,3 @@
+containers:
+- name: img1
+  image: hemosoft.azurecr.io/img1:v1
