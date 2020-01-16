@@ -1,4 +1,0 @@
-kind: Deployment
-containers:
-- name: sample
-  image: hemosoft.azurecr.io/img1:latest 
