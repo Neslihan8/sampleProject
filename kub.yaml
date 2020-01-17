@@ -1,32 +1,32 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: azure-vote-back
+  name: sample
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: azure-vote-back
+        app: sample
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: azure-vote-back
-        image: redis
+      - name: sample
+        image: img1
         ports:
         - containerPort: 6379
-          name: redis
+          name: img1
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-back
+  name: sample
 spec:
   ports:
   - port: 6379
   selector:
-    app: azure-vote-back
+    app: sample
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -58,8 +58,8 @@ spec:
           limits:
             cpu: 500m
         env:
-        - name: REDIS
-          value: "azure-vote-back"
+        - name: img1
+          value: "sample"
 ---
 apiVersion: v1
 kind: Service
