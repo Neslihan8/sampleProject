@@ -48,7 +48,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: sample
-        image: neslihan8/sampleproject
+        image: img1
         imagePullPolicy: Never
         ports:
         - containerPort: 80
