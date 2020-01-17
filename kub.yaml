@@ -49,6 +49,7 @@ spec:
       containers:
       - name: sample
         image: img1
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
         resources:
