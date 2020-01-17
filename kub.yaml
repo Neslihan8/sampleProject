@@ -48,8 +48,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: sample
-        image: img1
-        imagePullPolicy: Never
+        image: hemosoft.azurecr.io/img1:v1
         ports:
         - containerPort: 80
         resources:
