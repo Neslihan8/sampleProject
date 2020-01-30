@@ -13,10 +13,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: sample
-        image: img1
+        image: demoimage
         ports:
         - containerPort: 6379
-          name: img1
+          name: demoimage
 ---
 apiVersion: v1
 kind: Service
@@ -48,7 +48,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: sample
-        image: hemosoft.azurecr.io/img1:v1
+        image: hemosoftdemom.azurecr.io/demoimage:v1
         ports:
         - containerPort: 80
         resources:
@@ -57,7 +57,7 @@ spec:
           limits:
             cpu: 500m
         env:
-        - name: img1
+        - name: demoimage
           value: "sample"
 ---
 apiVersion: v1
