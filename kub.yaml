@@ -1,7 +1,7 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: demoimage-deployment
+  name: demoimage
 spec:
   replicas: 1
   template:
@@ -13,7 +13,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: demoimage
-        image: hemosoftdemom.azurecr.io/demoimage:v1
+        image: demoimage
         ports:
         - containerPort: 6379
           name: demoimage
@@ -28,7 +28,7 @@ spec:
   selector:
     app: demoimage
 ---
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: demoimage
@@ -60,13 +60,26 @@ spec:
         - name: demoimage
           value: "demoimage"
 ---
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
-  name: demoimage-service
+  name: demoimage
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: demoimage
+    app: sample
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Found 2 out of 2 items
