@@ -1,72 +1,21 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demoimage
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: demoimage
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: demoimage
-        image: demoimage
-        ports:
-        - containerPort: 6379
-          name: demoimage
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: demoimage
-spec:
-  ports:
-  - port: 6379
-  selector:
+  name: demoimage-deployment
+  labels:
     app: demoimage
----
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: demoimage
 spec:
   replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5 
+  selector:
+    matchLabels:
+      app: demoimage
   template:
     metadata:
       labels:
         app: demoimage
     spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
       containers:
       - name: demoimage
         image: hemosoftdemom.azurecr.io/demoimage:v1
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
-        env:
-        - name: demoimage
-          value: "demoimage"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: demoimage
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: sample
