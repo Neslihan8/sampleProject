@@ -13,7 +13,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: demoimage
-        image: hemosoftdemom.azurecr.io/demoimage:v1
+        image: demoimage
         ports:
         - containerPort: 6379
           name: demoimage
